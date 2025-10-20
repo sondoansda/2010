@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(() => {
           playButton.innerHTML = "🎶 Đang phát nhạc...";
           playButton.style.backgroundColor = "#ff4da6";
-          createFlowers(); // 🌸 Thả hoa khi bắt đầu nhạc
+          createFlowers(); 
         })
         .catch(err => {
           console.log("Không thể phát nhạc:", err);
@@ -55,23 +55,21 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     } else {
       music.pause();
-      playButton.innerHTML = "🎵 Phát lại bài 'Nắm Lấy Tay Anh'";
+      playButton.innerHTML = "🎵 Phát lại nhạc";
       playButton.style.backgroundColor = "#ff99cc";
     }
   });
 });
 
-// --- Hiệu ứng hoa rơi ---
+// --- Hoa rơi ---
 function createFlowers() {
   for (let i = 0; i < 40; i++) {
     const flower = document.createElement("div");
     flower.classList.add("flower");
 
-    // Random emoji hoa
     const emojis = ["🌸", "🌷", "💐", "🌺", "🌹"];
     flower.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
 
-    // Random vị trí và tốc độ
     flower.style.left = Math.random() * 100 + "vw";
     flower.style.fontSize = 20 + Math.random() * 20 + "px";
     flower.style.animationDuration = 4 + Math.random() * 5 + "s";
