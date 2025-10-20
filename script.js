@@ -1,8 +1,13 @@
 // --- Hiệu ứng lấp lánh ---
 const canvas = document.getElementById("sparkle");
 const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
 
 const stars = Array.from({ length: 100 }).map(() => ({
   x: Math.random() * canvas.width,
@@ -47,12 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(() => {
           playButton.innerHTML = "🎶 Đang phát nhạc...";
           playButton.style.backgroundColor = "#ff4da6";
-          createFlowers(); 
+          createFlowers(); // 🌸 Thả hoa khi bắt đầu nhạc
         })
-        .catch(err => {
-          console.log("Không thể phát nhạc:", err);
-          alert("Hãy click lại để bật nhạc!");
-        });
+        .catch(() => alert("Hãy click lại để bật nhạc!"));
     } else {
       music.pause();
       playButton.innerHTML = "🎵 Phát lại nhạc";
@@ -61,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// --- Hoa rơi ---
+// --- Hiệu ứng hoa rơi ---
 function createFlowers() {
   for (let i = 0; i < 40; i++) {
     const flower = document.createElement("div");
