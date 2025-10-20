@@ -1,0 +1,117 @@
+/* Nền và căn giữa */
+body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+/* Canvas hiệu ứng lấp lánh */
+#sparkle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Nội dung trung tâm */
+.content {
+    position: relative;
+    z-index: 2;
+    margin-top: 15%;
+    animation: fadeIn 2s ease;
+}
+
+h1 {
+    font-size: 2em;
+    text-shadow: 0 0 15px white;
+}
+
+p {
+    font-size: 1.2em;
+    margin: 20px;
+}
+
+/* Nút phát nhạc */
+#playMusic {
+    background-color: #ff66b3;
+    border: 2px solid white;
+    border-radius: 40px;
+    padding: 12px 25px;
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 3;
+    position: relative;
+}
+
+#playMusic:hover {
+    background-color: #ff99cc;
+    transform: scale(1.05);
+}
+
+/* Hoa rơi */
+.flower {
+    position: fixed;
+    top: -10%;
+    font-size: 24px;
+    animation: fall linear forwards;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Hiệu ứng xuất hiện */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bộ sưu tập ảnh */
+.photo-gallery {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    padding-bottom: 50px;
+    animation: fadeIn 2s ease;
+}
+
+.photo-gallery img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid white;
+}
+
+.photo-gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #fff, 0 0 35px #ff8fcf;
+}
